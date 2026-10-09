@@ -21,9 +21,6 @@ This table supports PG searching and filtering based on budget, location, room t
 
 ## 2. Visit Requests
 
-![Visit Requests](visit_requests.png)
-## Visit Requests Table (`visit_requests`)
-
 The `visit_requests` table stores the details of students requesting visits to selected PG accommodations.
 
 **Key Attributes:**
