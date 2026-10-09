@@ -2,10 +2,6 @@
 
 ## 1. PG Listings
 
-![PG Listings](pg_listings.png)
-
-## PG Listings Table (`pg_listings`)
-
 The `pg_listings` table stores details of available PG accommodations, helping students find suitable options based on their preferences.
 
 **Key Attributes:**
