@@ -17,7 +17,7 @@ This table supports PG searching and filtering based on budget, location, room t
 
 ### Table Structure
 
-![PG Listings Table Structure](pg_listings.png)
+![PG Listings Table Structure](pg_listing.png)
 
 ## 2. Visit Requests
 
@@ -37,3 +37,4 @@ The `visit_requests` table stores the details of students requesting visits to s
 ### Table Structure
 
 ![Visit Requests Table Structure](visit_requests.png)
+
