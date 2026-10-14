@@ -45,6 +45,11 @@ Stores student visit requests, including student details, selected PG, preferred
 
 ![Visit Requests Table](visit_requests.png)
 
+### 3. Users
+
+Stores registered student details, including their name, email address, and login credentials, to support account registration and authentication.
+
+![Visit Requests Table](user.png)
 For more details, see [TABLE_STRUCTURE.md](TABLE_STRUCTURE.md).
 
 ⚙️ Installation and Setup
