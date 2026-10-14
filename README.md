@@ -37,7 +37,7 @@ NestMatch uses a MySQL database named `nestmatch`.
 
 Stores accommodation information, including title, location, rent, distance, PG type, room type, facilities, rating, and description.
 
-![PG Listings Table](pg_listings.png)
+![PG Listings Table](pg_listing.png)
 
 2. Visit Requests
 
