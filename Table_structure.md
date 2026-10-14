@@ -38,3 +38,19 @@ The `visit_requests` table stores the details of students requesting visits to s
 
 ![Visit Requests Table Structure](visit_requests.png)
 
+## 3. Users
+
+The `users` table stores the details of students who register on the NestMatch platform, allowing them to create accounts, log in securely, and access features such as PG listings, visit bookings, and their dashboard.
+
+**Key Attributes:**
+- `id` – Unique user ID (Primary Key)
+- `name` – Student's full name
+- `email` – Student's email address (used for login)
+- `password` – Hashed password used for secure authentication
+- `created_at` – Account creation date and time
+
+**Purpose:** This table manages student registration and authentication, ensuring that each registered user can securely access their account and manage their PG visit requests.
+
+### Table Structure
+
+![Users Table Structure](user.png)
