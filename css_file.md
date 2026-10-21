@@ -2,7 +2,7 @@
 **GitHub Link:** [style.css]
 
 **Purpose:**  
-The `style.css` file defines the visual appearance and layout of the NestMatch web application.
+The [`style.css'] file defines the visual appearance and layout of the NestMatch web application.
 
 **Contents:**
 - **Color scheme:** Uses a beige, cream, brown, and white palette.
