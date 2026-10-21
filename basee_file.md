@@ -1,6 +1,5 @@
 # File: `base.html`
-
-**GitHub Link:** [base.html](https://github.com/bhawanaarya03/NESTMATCH)
+GitHub Link: [base.html](https://github.com/bhawanaarya03/NESTMATCH/blob/main/base.html)
 
 ## Purpose
 The `base.html` file defines the common HTML structure and layout of the NestMatch web application. Other HTML templates extend this file to maintain a consistent design across the website.
