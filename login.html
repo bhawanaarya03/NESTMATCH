@@ -1,0 +1,19 @@
+{% extends "base.html" %}{% block content %}
+<section class="auth-layout">
+  <div class="auth-art">
+    <div class="art-tag">YOUR NEXT CHAPTER STARTS HERE</div>
+    <h1>Find a place<br>that feels like <em>you.</em></h1>
+    <p>Thoughtful PG discovery for student life. Compare your options, then visit the one that feels right.</p>
+    <div class="art-stats"><div><strong>01</strong><span>Search your way</span></div><div><strong>02</strong><span>Compare with ease</span></div><div><strong>03</strong><span>Plan a visit</span></div></div>
+    <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+  </div>
+  <div class="auth-panel"><div class="eyebrow">WELCOME BACK</div><h2>Good to see you.</h2><p class="muted">Log in to continue your search for home.</p>
+    <form method="post" action="{{ url_for('login') }}" class="form-stack">
+      <label>Email address<input type="email" name="email" placeholder="you@example.com" required autocomplete="email"></label>
+      <label>Password<input type="password" name="password" placeholder="Enter your password" required autocomplete="current-password"></label>
+      <button class="btn btn-primary full" type="submit">Log in <span>→</span></button>
+    </form>
+    <div class="auth-switch">New to NestMatch? <a href="{{ url_for('register') }}">Create an account</a></div>
+    <div class="secure-note">Your search, your pace. No pressure.</div>
+  </div>
+</section>{% endblock %}
