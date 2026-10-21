@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% block content %}
+<section class="page-intro"><div><div class="eyebrow">A PLACE OF YOUR OWN</div><h1>Find your kind of <em>home.</em></h1><p>Explore student-friendly PGs and filter down to what matters to you.</p></div><div class="intro-stamp"><span>✳</span><small>SEARCH<br>SMARTER</small></div></section>
+<form class="searchbar" method="get" action="{{ url_for('listings') }}"><span class="search-icon">⌕</span><input name="q" value="{{ filters.get('q','') }}" placeholder="Search by PG name, area or city"><button class="btn btn-primary" type="submit">Search PGs</button></form>
+<div class="listing-layout">
+  <aside class="filters"><div class="filter-head"><h3>Refine search</h3><a href="{{ url_for('listings') }}">Reset</a></div>
+  <form method="get" action="{{ url_for('listings') }}" class="filter-form">
+    <input type="hidden" name="q" value="{{ filters.get('q','') }}">
+    <label>Area<select name="area"><option value="">All areas</option>{% for a in areas %}<option value="{{ a.area }}" {% if filters.get('area') == a.area %}selected{% endif %}>{{ a.area }}</option>{% endfor %}</select></label>
+    <div class="filter-label">Monthly budget (₹)</div><div class="two-fields"><input type="number" name="min_rent" min="0" placeholder="Min" value="{{ filters.get('min_rent','') }}"><input type="number" name="max_rent" min="0" placeholder="Max" value="{{ filters.get('max_rent','') }}"></div>
+    <label>Accommodation<select name="pg_type"><option value="">Any type</option>{% for x in ['Girls','Boys','Co-living'] %}<option {% if filters.get('pg_type') == x %}selected{% endif %}>{{ x }}</option>{% endfor %}</select></label>
+    <label>Room type<select name="room_type"><option value="">Any room</option>{% for x in ['Single','Double','Triple'] %}<option {% if filters.get('room_type') == x %}selected{% endif %}>{{ x }}</option>{% endfor %}</select></label>
+    <label>Must-have facility<select name="facility"><option value="">Any facility</option>{% for x in ['Wi-Fi','Meals','AC','Laundry','Security'] %}<option {% if filters.get('facility') == x %}selected{% endif %}>{{ x }}</option>{% endfor %}</select></label>
+    <label>Sort by<select name="sort"><option value="recommended" {% if filters.get('sort','recommended') == 'recommended' %}selected{% endif %}>Recommended</option><option value="rent_low" {% if filters.get('sort') == 'rent_low' %}selected{% endif %}>Rent: low to high</option><option value="rent_high" {% if filters.get('sort') == 'rent_high' %}selected{% endif %}>Rent: high to low</option><option value="rating" {% if filters.get('sort') == 'rating' %}selected{% endif %}>Highest rated</option></select></label>
+    <button class="btn btn-outline full" type="submit">Apply filters</button>
+  </form><div class="filter-note"><span>✦</span><p><strong>A small reminder</strong><br>Confirm rent, availability and facilities with the property before visiting.</p></div></aside>
+  <section class="results"><div class="results-head"><div><h2>Places to explore</h2><p>{{ pgs|length }} matching stays</p></div><span class="results-chip">CURATED FOR STUDENTS</span></div>
+  {% if pgs %}<div class="pg-grid">{% for pg in pgs %}<article class="pg-card">
+    <div class="pg-photo" style="background-image: url('{{ pg.image_url or 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80' }}')">{% if pg.featured %}<span class="featured">FEATURED</span>{% endif %}<span class="pg-kind">{{ pg.pg_type }}</span></div>
+    <div class="pg-content"><div class="pg-location">⌖ {{ pg.area }}, {{ pg.location }}</div><h3>{{ pg.title }}</h3><p class="pg-desc">{{ pg.description }}</p>
+      <div class="pg-facts"><span>♧ {{ pg.room_type }} room</span><span>↗ {{ pg.distance_km }} km away</span><span>★ {{ pg.rating }}</span></div>
+      <div class="amenities">{% for amenity in pg.facilities.split(',')[:3] %}<span>{{ amenity.strip() }}</span>{% endfor %}</div>
+      <div class="pg-bottom"><div class="rent">₹{{ "{:,}".format(pg.rent) }}<small>/ month</small></div><form method="post" action="{{ url_for('request_visit', pg_id=pg.id) }}" class="visit-form"><label class="sr-only" for="date-{{ pg.id }}">Preferred visit date</label><input id="date-{{ pg.id }}" type="date" name="preferred_date" min="{{ now }}" required aria-label="Preferred visit date"><button class="btn btn-primary btn-small" type="submit">Request visit ↗</button></form></div>
+    </div></article>{% endfor %}</div>{% else %}<div class="empty-state"><span>⌂</span><h3>No stays found just yet</h3><p>Try widening your budget or clearing one of your filters.</p><a class="btn btn-outline" href="{{ url_for('listings') }}">Clear filters</a></div>{% endif %}
+  </section>
+</div>{% endblock %}
