@@ -1,7 +1,6 @@
 # File: `dashboard.html`
 
-**GitHub Link:** [dashboard.html](https://github.com/bhawanaarya03/NESTMATCH)
-
+**GitHub Link:** [dashboard.html](https://github.com/bhawanaarya03/NESTMATCH/blob/main/dashboard.html)
 ## Purpose
 The `dashboard.html` file displays the user's visit dashboard, where they can view their PG visit requests, check their status, and manage pending requests.
 
