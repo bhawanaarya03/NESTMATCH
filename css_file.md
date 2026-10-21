@@ -1,5 +1,4 @@
-
-GitHub Link: [style.css](https://github.com/bhawanaarya03/NESTMATCH/blob/main/static/style.css)
+GitHub Link: [style.css](https://github.com/bhawanaarya03/NESTMATCH/blob/main/style.css)
 
 **Purpose:**  
 The [`style.css'] file defines the visual appearance and layout of the NestMatch web application.
