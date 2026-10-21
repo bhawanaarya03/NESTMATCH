@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block content %}
+<section class="auth-layout">
+  <div class="auth-art register-art"><div class="art-tag">MAKE ROOM FOR WHAT'S NEXT</div><h1>A better stay<br>starts with <em>a search.</em></h1><p>Create your free account to save time, explore PG options and plan visits that fit your schedule.</p><div class="art-stats"><div><strong>01</strong><span>Set your preferences</span></div><div><strong>02</strong><span>Find your shortlist</span></div><div><strong>03</strong><span>Visit with confidence</span></div></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div></div>
+  <div class="auth-panel"><div class="eyebrow">GET STARTED</div><h2>Make yourself at home.</h2><p class="muted">Create an account in just a moment.</p>
+    <form method="post" class="form-stack">
+      <label>Full name<input name="name" placeholder="Your name" required autocomplete="name"></label>
+      <label>Email address<input type="email" name="email" placeholder="you@example.com" required autocomplete="email"></label>
+      <label>Password<input type="password" name="password" placeholder="At least 8 characters" minlength="8" required autocomplete="new-password"></label>
+      <button class="btn btn-primary full" type="submit">Create account <span>→</span></button>
+    </form>
+    <div class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Log in</a></div><div class="secure-note">Your details stay tied to your account.</div>
+  </div>
+</section>{% endblock %}
