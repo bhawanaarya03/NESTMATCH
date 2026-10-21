@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title or 'NestMatch' }} · NestMatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="{{ url_for('listings') if session.get('user_id') else url_for('login') }}"><span class="brand-mark">n.</span><span>Nest<span class="brand-light">Match</span><small>FIND YOUR PLACE</small></span></a>
+  {% if session.get('user_id') %}
+  <nav><a href="{{ url_for('listings') }}">Explore PGs</a><a href="{{ url_for('dashboard') }}">My visits</a><span class="nav-user">Hi, {{ session.get('name', 'there').split(' ')[0] }}</span><a class="nav-logout" href="{{ url_for('logout') }}">Log out</a></nav>
+  {% endif %}
+</header>
+<main>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}<div class="flash-stack">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+<footer> <span>© 2026 NestMatch</span><span>A little closer to feeling at home.</span> </footer>
+</body>
+</html>
